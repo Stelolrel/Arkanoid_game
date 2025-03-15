@@ -540,7 +540,7 @@ while win_condition==0:
 value=1
 while value ==1:
     pygame.display.update()
-    clock.tick(48)
+    clock.tick(60)
     if win_condition == -1:
         chenar1 = TextArea(x=100,y=300,width=300,height=100,color=hitbox,outlinecolor=(0,0,0))
         chenar1.set_text('You Lost',70,(0,0,0))
