@@ -1,4 +1,4 @@
-﻿import pygame
+import pygame
 from random import*
 from time import*
 pygame.init()
@@ -138,16 +138,16 @@ Sspeed=3
 BCvalue =1
 wait=0
 Ivalue=0
+Rvalue=1
 while win_condition==0:
     chenar1.draw(shift_x=15,shift_y=35)
-    Rvalue = randint(1,30)
     pygame.display.update()
     clock.tick(48)
-    if Rvalue == 1:
-        if BCvalue ==1:
-            Rbooster = randint(0,6)
-            Ivalue=1
-            BCvalue=0
+    Rvalue = randint(1,100)
+    if Rvalue==1 and BCvalue ==1:
+        Rbooster = randint(1,6)
+        Ivalue=1
+        BCvalue=0
     if Rbooster == 1:
         if Ivalue ==1:
             booster1.rect.x=randint(50,450)
@@ -413,14 +413,14 @@ while win_condition==0:
             booster6.rect1.y=750
             window.fill((0,225,255))
             stick.imagedraw(shift_x+5,shift_y)
-
-    print(Rbooster)
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a:
                 Move_Right=True
             if event.key == pygame.K_d:
                 Move_Left=True
+            if event.key == pygame.K_q:
+                win_condition=-1
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_a:
                 Move_Right=False
@@ -456,7 +456,7 @@ while win_condition==0:
             stick.imagedraw(shift_x+5,shift_y)
         if Bshield.rect.colliderect(ball2.rect) :
             Bshield.fill()
-            speedY *= -1
+            speedY2 *= -1
             shields.remove(Bshield)
             window.fill((0,225,255))
             stick.imagedraw(shift_x+5,shift_y)
@@ -529,8 +529,6 @@ while win_condition==0:
         if ball2.collidepoint(wall2.rect) :
             speedX2 *= -1  
         Bvalue=0
-    print(Rvalue)
-    print(Rbooster)
     result= 'booster time:'+str(wait/100)
     if wait > -1:
         resultS = TextArea(x=0,y=700,width=500,height=100,color=(255,255,255),outlinecolor=(0,0,0))
@@ -540,7 +538,7 @@ while win_condition==0:
 value=1
 while value ==1:
     pygame.display.update()
-    clock.tick(60)
+    clock.tick(48)
     if win_condition == -1:
         chenar1 = TextArea(x=100,y=300,width=300,height=100,color=hitbox,outlinecolor=(0,0,0))
         chenar1.set_text('You Lost',70,(0,0,0))
