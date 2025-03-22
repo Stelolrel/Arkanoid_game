@@ -203,9 +203,10 @@ while win_condition==0:
         if timerS ==1:
             wait-=1
             if wait <= 0:
+                    previousX = stick.rect1.x
                     stick.rect.x+=2000
                     stick.rect1.x+=2000
-                    stick=Picture('platform.png',x=250,y=510,width=112,height=26,size=(90,25))
+                    stick=Picture('platform.png',x=previousX,y=510,width=112,height=26,size=(90,25))
                     stick.imagedraw(shift_x+5,shift_y)
                     window.fill((0,225,255))
                     stick.imagedraw(shift_x+5,shift_y)
@@ -218,9 +219,10 @@ while win_condition==0:
             booster2.rect.y=110
             booster2.rect1.y=110
             booster2.imagedraw(2,2)
+            previousX = stick.rect1.x
             stick.rect.x=2000
             stick.rect1.x=2000
-            stick=Picture('platform.png',x=250,y=510,width=168,height=39,size=(120,38))
+            stick=Picture('platform.png',x=previousX,y=510,width=168,height=39,size=(120,38))
             stick.imagedraw(shift_x+5,shift_y)
             window.fill((0,225,255))
             stick.imagedraw(shift_x+5,shift_y)
@@ -253,10 +255,11 @@ while win_condition==0:
         if timerS ==1:
             wait-=1
             if wait <= 0:
+                    previousX = stick.rect1.x
                     stick.rect.x=2000
                     stick.rect1.x=2000
                     stick.imagedraw(shift_x+5,shift_y)
-                    stick=Picture('platform.png',x=250,y=510,width=112,height=26,size=(90,25))
+                    stick=Picture('platform.png',x=previousX,y=510,width=112,height=26,size=(90,25))
                     stick.imagedraw(shift_x+5,shift_y)
                     BCvalue=1
                     window.fill((0,225,255))
@@ -269,10 +272,11 @@ while win_condition==0:
             booster3.rect.y=110
             booster3.rect1.y=110
             booster3.imagedraw(2,2)
+            previousX = stick.rect1.x
             stick.rect.x=2000
             stick.rect1.x=2000
             stick.imagedraw(shift_x+5,shift_y)
-            stick=Picture('platform.png',x=250,y=510,width=62,height=15,size=(45,12))
+            stick=Picture('platform.png',x=previousX,y=510,width=62,height=15,size=(45,12))
             stick.imagedraw(shift_x+5,shift_y)
             window.fill((0,225,255))
             stick.imagedraw(shift_x+5,shift_y)
@@ -553,5 +557,3 @@ while value ==1:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_q:
                 value=2
-     
-
